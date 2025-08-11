@@ -1,10 +1,13 @@
 ﻿using ProxyDesignPatternSample;
-using System.Drawing;
 
-IGraphic imageProxy = new ImageProxy("big_photo.jpg");
+DocumentEditor document = new();
 
-Console.WriteLine("Proxy created, real image NOT loaded yet.");
+// Insert image proxies - real images not loaded yet
+document.Add(new ImageProxy("big_photo.jpg"));
+document.Add(new ImageProxy("another_photo.png"));
 
-imageProxy.Draw(new Point(10, 10));
+Console.WriteLine("Document created with image proxies (no real images loaded yet).");
 
-imageProxy.Draw(new Point(20, 20));
+document.DrawAll();
+
+document.DrawAll();
